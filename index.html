@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="estiilo.css">
+</head>
+
+<body>
+
+  <div id="titulo">
+    <img src="Bano.png" width="1000px" height="350px">
+  </div>
+
+ 
+</head>
+<body>
+
+<div class="form-box">
+    <h2>Agendamento de Restaurante</h2>
+    <form id="reservationForm">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="date">Data:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="time">Hora:</label><br>
+        <input type="time" id="time" name="time" required><br><br>
+        <label for="people">Número de Pessoas:</label><br>
+        <input type="number" id="people" name="people" required><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<div>
+    <h2>Reservas</h2>
+    <table id="reservationsTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Pessoas</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+       
+        const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const people = document.getElementById('people').value;
+
+        const table = document.getElementById('reservationsTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        newRow.insertCell(0).textContent = name;
+        newRow.insertCell(1).textContent = date;
+        newRow.insertCell(2).textContent = time;
+        newRow.insertCell(3).textContent = people;
+
+        document.getElementById('reservationForm').reset();
+    });
+</script>
+
+</body>
+</html>
